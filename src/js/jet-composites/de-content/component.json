@@ -1,0 +1,21 @@
+{
+  "name": "de-content",
+  "displayName": "de-content",
+  "description": "Describe your component here",
+  "version": "1.0.0",
+  "jetVersion": "5.1.0",
+  "properties": {
+    "deSelectedSource": {
+      "type": "string"
+    }
+  },
+  "methods": {
+
+  }, 
+  "events": {
+
+  }, 
+  "slots": {
+
+  }
+}

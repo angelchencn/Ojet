@@ -1,0 +1,8 @@
+de-navigation:not(.oj-complete){
+  visibility: hidden;
+}
+
+de-navigation{
+	min-height: 50px;
+	width: 50px;
+}

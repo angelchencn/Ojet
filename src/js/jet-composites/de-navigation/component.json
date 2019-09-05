@@ -1,0 +1,21 @@
+{
+  "name": "de-navigation",
+  "displayName": "de-navigation",
+  "description": "Describe your component here",
+  "version": "1.0.0",
+  "jetVersion": "5.1.0",
+  "properties": {
+    "deSource": {
+      "type": "string"
+    }
+  },
+  "methods": {
+
+  }, 
+  "events": {
+
+  }, 
+  "slots": {
+
+  }
+}

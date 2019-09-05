@@ -1,0 +1,43 @@
+<!--
+ Copyright (c) 2014, 2019, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Components </h1>
+  <div role="main" class="oj-web-applayout-max-width oj-web-applayout-content">
+    <div class="oj-flex oj-flex-items-pad">
+      <div class="oj-sm-4 oj-md-3 oj-flex-item">
+        <de-navigation id="de-navigation">
+          <oj-navigation-list>
+            <ul>
+              <oj-bind-for-each data="[[listItems]]">
+                <template>
+                  <li :id="[[$current.data.id]]" :class="[[{'oj-disabled': $current.data.disabled}]]" >
+                    <a href="#">
+                      <oj-bind-text value="[[$current.data.label]]"></oj-bind-text>
+                    </a>
+                  </li>
+                </template>
+              </oj-bind-for-each>
+            </ul>
+          </oj-navigation-list>
+        </de-navigation>
+        <!--<oj-navigation-list id="navList" data="[[listItems]]"
+          :class="[[{'oj-md-condense oj-md-justify-content-flex-end': !smScreen()}]]"
+          display="[[smScreen() ? 'icons' : 'all']]" edge=""
+          item.renderer="[[KnockoutTemplateUtils.getRenderer('navTemplate', true)]]" selection="{{router.stateId}}">
+        </oj-navigation-list>-->
+      </div>
+      <div class="oj-sm-6 oj-md-7 oj-flex-item">
+        <de-content id="de-content">
+          <p class="bold">Last selected list item:
+            <span>
+              <oj-bind-text value="[[selectedItem]]"></oj-bind-text>
+            </span>
+          </p>
+        </de-content>
+      </div>
+      <div class="oj-sm-2 oj-md-2 oj-flex-item"></div>
+    </div>
+  </div>
+</div>

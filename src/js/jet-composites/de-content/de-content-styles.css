@@ -1,0 +1,8 @@
+de-content:not(.oj-complete){
+  visibility: hidden;
+}
+
+de-content{
+	min-height: 50px;
+	width: 50px;
+}

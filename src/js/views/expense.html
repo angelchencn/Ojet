@@ -1,0 +1,36 @@
+<!--
+ Copyright (c) 2014, 2019, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+
+  <h1>Expense</h1>
+  <div class="oj-flex">
+    <div class="oj-flex-item oj-sm-3">
+      <div class="oj-panel">
+        <h3>Create Expense</h3>
+        <oj-form-layout>
+          <oj-label>Description</oj-label>
+          <oj-input-text value="{{form.description}}"></oj-input-text>
+  
+          <oj-label>Amount</oj-label>
+          <oj-input-number value="{{form.amount}}"></oj-input-number>
+          <oj-button on-oj-action='[[createExpense]]'>Create</oj-button>
+        </oj-form-layout>
+      </div>
+    </div>
+
+    <div class="oj-flex-item oj-sm-9" style="padding-left: 10px;">
+      <div class="oj-panel">
+        <h3>Expense List</h3>
+        <oj-table
+          data='[[pagingDataProvider]]'
+          columns='[[columnOptions]]'
+          style='width: 100%; height: 200px;'>
+        </oj-table>
+  
+        <oj-paging-control slot="top" data='[[pagingDataProvider]]' page-size='5' class="ex-expense-list-pager">
+        </oj-paging-control>
+      </div>
+    </div>
+
+  </div>

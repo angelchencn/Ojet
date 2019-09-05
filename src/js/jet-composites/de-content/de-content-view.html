@@ -1,0 +1,12 @@
+<!--
+  Copyright (c) 2015, 2018, Oracle and/or its affiliates.
+  The Universal Permissive License (UPL), Version 1.0
+-->
+<h2 data-bind="text: sourceTitle"></h2>
+
+<oj-list-view id="listview" aria-label="list using observable array" 
+    data="[[dataProvider]]">
+  <template slot="itemTemplate">
+      <h2 data-bind="text: [[$current.data.title]]"></h2>
+  </template>
+</oj-list-view>
