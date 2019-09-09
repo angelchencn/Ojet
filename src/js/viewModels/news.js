@@ -2,14 +2,15 @@ define([
   'ojs/ojcore', 
   'knockout', 
   'ojs/ojknockout',
-  'jet-composites/de-content/1.0.0/loader', 
-  'jet-composites/de-navigation/1.0.0/loader'
+  'jet-composites/de-navigation/1.0.0/loader',
+  'jet-composites/de-content/1.0.0/loader'
 ],
  function(oj, ko) {
 
     function NewsViewModel() {
       console.log("NewsViewModel");
       var self = this;
+      
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
 

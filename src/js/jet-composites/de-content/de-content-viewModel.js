@@ -8,7 +8,7 @@ define(
     function (oj, ko, $, componentStrings) {
         function DeContentModel(context) {
             var self = this;
-            self.rootModel = ko.dataFor(document.getElementById('de-content'));
+            self.rootModel = ko.dataFor(document.getElementById('globalBody'));
 
             //At the start of your viewModel constructor
             var busyContext = oj.Context.getContext(context.element).getBusyContext();
@@ -20,7 +20,7 @@ define(
             self.properties = context.properties;
             self.res = componentStrings['de-content'];
 
-            self.source = ko.observable(self.rootModel.selectedSource);
+            self.source = self.rootModel.selectedSource;
             self.sourceTitle = ko.observable("Select Source");
             //self.source.subscribe
 

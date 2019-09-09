@@ -27,7 +27,7 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockouttemplateutils',
         'knockout': { label: 'Knockout' },
         'components': { label: 'Components' },
         'news': { label: 'News' },
-        'customers': { label: 'Customers' },
+        'customers': { label: 'Customers(TSC)' },
         'course': { label: 'Course' }
       });
       Router.defaults['urlAdapter'] = new Router.urlParamAdapter();
@@ -100,6 +100,7 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockouttemplateutils',
       self.appName = ko.observable("Ojet");
       // User Info used in Global Navigation area
       self.userLogin = ko.observable("xiaojun.chen@oracle.com");
+      self.selectedSource = ko.observable({})
 
       // Footer
       function footerLink(name, id, linkTarget) {

@@ -7,8 +7,9 @@
   },
   "devDependencies": {
     "@oracle/oraclejet-tooling": "~7.1.0",
-    "qunit-reporter-junit": "^1.1.1",
-    "qunit": "^2.4.1"
+    "@types/core-js": "^2.5.2",
+    "qunit": "^2.4.1",
+    "qunit-reporter-junit": "^1.1.1"
   },
   "engines": {
     "node": ">=0.10.0"
