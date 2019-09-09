@@ -25,6 +25,7 @@ define(
             //self.source.subscribe
 
             self.source.subscribe(function (newText) {
+
                 self.sourceTitle(newText ? newText.name + " Headlines" : "Select Source");
                 // reset the list
                 self.news([]);
@@ -34,7 +35,7 @@ define(
                     function (data) {
                         self.news(data.articles);
                     })
-            })
+            });
             //fetch the headlines
             self.news = ko.observableArray([]);
             self.dataProvider = new oj.ArrayDataProvider(self.news, { keyAttributes: "id" });

@@ -8,7 +8,6 @@ define(['knockout',
     console.log("ComponentsViewModel ==> 1");
     function ComponentsViewModel() {
       console.log("ComponentsViewModel ==> 2");
-
       this.listItems = [
         {
           id: "home",
@@ -36,19 +35,8 @@ define(['knockout',
           disabled: false
         }
       ];
-      this.selectedItem = ko.observable('home');
+      this.selectedItem = ko.observable("home");;
 
-      self.connected = function () {
-        console.log("ComponentsViewModel ==> connected");
-      };
-
-      self.disconnected = function () {
-        console.log("ComponentsViewModel ==> disconnected");
-      };
-
-      self.transitionCompleted = function () {
-        console.log("ComponentsViewModel ==> transitionCompleted");
-      };
     }
 
     return new ComponentsViewModel();
