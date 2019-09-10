@@ -1,17 +1,15 @@
 
 define(['knockout',
-  'ojs/ojbootstrap',
   'ojs/ojknockout',
   'ojs/ojnavigationlist'
 ],
   function (ko) {
-    console.log("ComponentsViewModel ==> 1");
     function ComponentsViewModel() {
-      console.log("ComponentsViewModel ==> 2");
+      this.currentModule = ko.observable("framework");
       this.listItems = [
         {
-          id: "home",
-          label: "Home",
+          id: "framework",
+          label: "Framework",
           disabled: false
         },
         {
@@ -27,7 +25,7 @@ define(['knockout',
         {
           id: "stylelab",
           label: "Style Lab",
-          disabled: true
+          disabled: false
         },
         {
           id: "Support",
@@ -35,10 +33,8 @@ define(['knockout',
           disabled: false
         }
       ];
-      this.selectedItem = ko.observable("home");;
-
+      
     }
-
     return new ComponentsViewModel();
   }
 );

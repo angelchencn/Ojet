@@ -28,7 +28,8 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockouttemplateutils',
         'components': { label: 'Components' },
         'news': { label: 'News' },
         'customers': { label: 'Customers(TSC)' },
-        'course': { label: 'Course' }
+        'course': { label: 'Course' },
+        'test': { label: 'Test' }
       });
       Router.defaults['urlAdapter'] = new Router.urlParamAdapter();
 
@@ -75,6 +76,10 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockouttemplateutils',
         },
         {
           name: 'Course', id: 'course',
+          iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'
+        },
+        {
+          name: 'Test', id: 'test',
           iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'
         }
       ];

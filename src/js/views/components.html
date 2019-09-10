@@ -8,11 +8,11 @@
     <div class="oj-flex oj-flex-items-pad">
       <div class="oj-sm-4 oj-md-3 oj-flex-item">
         <de-navigation id="de-navigation">
-          <oj-navigation-list>
+          <oj-navigation-list selection="{{currentModule}}">
             <ul>
               <oj-bind-for-each data="[[listItems]]">
                 <template>
-                  <li :id="[[$current.data.id]]" :class="[[{'oj-disabled': $current.data.disabled}]]" >
+                  <li :id="[[$current.data.id]]" :class="[[{'oj-disabled': $current.data.disabled}]]">
                     <a href="#">
                       <oj-bind-text value="[[$current.data.label]]"></oj-bind-text>
                     </a>
@@ -22,22 +22,14 @@
             </ul>
           </oj-navigation-list>
         </de-navigation>
-        <!--<oj-navigation-list id="navList" data="[[listItems]]"
-          :class="[[{'oj-md-condense oj-md-justify-content-flex-end': !smScreen()}]]"
-          display="[[smScreen() ? 'icons' : 'all']]" edge=""
-          item.renderer="[[KnockoutTemplateUtils.getRenderer('navTemplate', true)]]" selection="{{router.stateId}}">
-        </oj-navigation-list>-->
       </div>
       <div class="oj-sm-6 oj-md-7 oj-flex-item">
         <de-content id="de-content">
-          <p class="bold">Last selected list item:
-            <span>
-              <oj-bind-text value="[[selectedItem]]"></oj-bind-text>
-            </span>
-          </p>
+          <span>
+              <oj-bind-text value='[[currentModule]]'></oj-bind-text>
+          </span>
         </de-content>
       </div>
-      <div class="oj-sm-2 oj-md-2 oj-flex-item"></div>
     </div>
   </div>
 </div>

@@ -1,0 +1,29 @@
+<!--
+ Copyright (c) 2014, 2019, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Test Content Area</h1>
+  <div id="sampleDemo" style="" class="demo-padding demo-container">
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+      
+      <div id="moduleDemo">          
+        <oj-buttonset-one class="oj-buttonset-width-auto" value="{{currentModule}}">
+          <oj-option id="sv1" value="first">View One</oj-option>
+          <oj-option id="sv2" value="second">View Two</oj-option>
+          <oj-option id="sv3" value="third">View Three</oj-option>
+        </oj-buttonset-one>
+        
+        <p>
+        The inserted module is below
+        </p>
+        <oj-module 
+          config="[[ModuleElementUtils.createConfig({name: 'components/' + currentModule()})]]" 
+          style="background-color:aliceblue;height:100%;">
+        </oj-module>
+      </div>
+
+      
+    </div>
+  </div>
+</div>

@@ -32,8 +32,6 @@ define(['knockout'],
         },
         template: {require: 'text!views/htmlTemplate.html'}
       });
-
-
     }
 
     return new AboutViewModel();
