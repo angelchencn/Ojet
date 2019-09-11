@@ -7,28 +7,23 @@
   <div role="main" class="oj-web-applayout-max-width oj-web-applayout-content">
     <div class="oj-flex oj-flex-items-pad">
       <div class="oj-sm-4 oj-md-3 oj-flex-item">
-        <de-navigation id="de-navigation">
-          <oj-navigation-list selection="{{currentModule}}">
-            <ul>
-              <oj-bind-for-each data="[[listItems]]">
-                <template>
-                  <li :id="[[$current.data.id]]" :class="[[{'oj-disabled': $current.data.disabled}]]">
-                    <a href="#">
-                      <oj-bind-text value="[[$current.data.label]]"></oj-bind-text>
-                    </a>
-                  </li>
-                </template>
-              </oj-bind-for-each>
-            </ul>
-          </oj-navigation-list>
-        </de-navigation>
+        <oj-navigation-list selection="{{currentModule}}">
+          <ul>
+            <oj-bind-for-each data="[[listItems]]">
+              <template>
+                <li :id="[[$current.data.id]]" :class="[[{'oj-disabled': $current.data.disabled}]]">
+                  <a href="#">
+                    <oj-bind-text value="[[$current.data.label]]"></oj-bind-text>
+                  </a>
+                </li>
+              </template>
+            </oj-bind-for-each>
+          </ul>
+        </oj-navigation-list>
       </div>
       <div class="oj-sm-6 oj-md-7 oj-flex-item">
-        <de-content id="de-content">
-          <span>
-              <oj-bind-text value='[[currentModule]]'></oj-bind-text>
-          </span>
-        </de-content>
+        <oj-module config="[[ModuleElementUtils.createConfig({name: 'components/' + currentModule()})]]">
+        </oj-module>
       </div>
     </div>
   </div>

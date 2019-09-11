@@ -1,1 +1,37 @@
-<p>This is the view defined in 'framework.html'</p>
+<div id="domBinding" style="width: 1px; min-width: 100%;">
+    <h4>
+        Data Binding Sample
+    </h4>
+    <oj-bind-dom config="[[config]]"></oj-bind-dom>
+    <oj-bind-text value='[[testVal]]'></oj-bind-text>
+    <p>First name: <input data-bind="value: firstName" /></p>
+    <p>Last name: <input data-bind="value: lastName" /></p>
+    <h2>Hello, <span data-bind="text: fullName"> </span>!</h2>
+
+    <h4>
+        Even Binding Sample
+    </h4>
+    <input id="input2" :class="[[classArrayObs]]" value="Text Stype" style="width:100%;max-width:18em" />
+    <oj-button id="button1" on-oj-action="[[clickListener1]]">Change Stype</oj-button>
+
+    <div id="form-container">
+        <h4>
+            ForEach Binding Sample
+        </h4>
+        <oj-button id="addPerson" class='oj-button-sm' chroming='full' on-oj-action="[[addUser]]">Add User</oj-button>
+        <ul>
+            <oj-bind-for-each data="[[dataProvider]]">
+                <template>
+                    <li>
+                        <oj-bind-text value="[[$current.observableIndex]]"></oj-bind-text> : <oj-bind-text
+                            value="[[$current.data.name]]"></oj-bind-text>
+                        <oj-button class='oj-button-sm' chroming='half' display='icons' on-oj-action="[[removeUser]]">
+                            <span slot="startIcon" class="oj-fwk-icon oj-fwk-icon-cross"></span>
+                            Remove
+                        </oj-button>
+                    </li>
+                </template>
+            </oj-bind-for-each>
+        </ul>
+    </div>
+</div>

@@ -51,8 +51,6 @@ define(
                     return item.id === newText;
                 });
                 self.rootModel.selectedSource = found;
-                console.log("111>>>" + self.selected);
-                console.log("222>>>" + found);
             });
 
             $.getJSON("https://newsapi.org/v2/sources?apiKey=31b0c3179f46467a92b15751618aca39",

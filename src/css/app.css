@@ -5,3 +5,13 @@
     Description:
         This is where any of your application specific styles should be included
 */
+
+.bold {
+    font-weight: bold;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .pink {
+    color: #ff69b4;
+  }

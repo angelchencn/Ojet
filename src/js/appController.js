@@ -27,7 +27,7 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockouttemplateutils',
         'knockout': { label: 'Knockout' },
         'components': { label: 'Components' },
         'news': { label: 'News' },
-        'customers': { label: 'Customers(TSC)' },
+        'customers': { label: 'Customers' },
         'course': { label: 'Course' },
         'test': { label: 'Test' }
       });
@@ -71,7 +71,7 @@ define(['knockout', 'ojs/ojmodule-element-utils', 'ojs/ojknockouttemplateutils',
           iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'
         },
         {
-          name: 'Customers', id: 'customers',
+          name: 'Customers(TS)', id: 'customers',
           iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'
         },
         {

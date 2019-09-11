@@ -1,11 +1,13 @@
 
 define(['knockout',
+  'ojs/ojmodule-element-utils',
   'ojs/ojknockout',
   'ojs/ojnavigationlist'
 ],
-  function (ko) {
+  function (ko, ModuleElementUtils) {
     function ComponentsViewModel() {
       this.currentModule = ko.observable("framework");
+      this.ModuleElementUtils = ModuleElementUtils;
       this.listItems = [
         {
           id: "framework",
@@ -13,8 +15,8 @@ define(['knockout',
           disabled: false
         },
         {
-          id: "gettingstarted",
-          label: "Getting Started",
+          id: "layout",
+          label: "Layout",
           disabled: false
         },
         {
