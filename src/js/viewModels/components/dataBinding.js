@@ -3,16 +3,21 @@ define([
     'ojs/ojhtmlutils',
     'ojs/ojarraydataprovider',
     'ojs/ojarraytreedataprovider',
-    'ojs/ojmodule-element-utils', 
+    'ojs/ojmodule-element-utils',
     'ojs/ojlogger',
     'text!../../../sampleData/product.json',
     'text!../../../sampleData/animals.json',
+    'ojs/ojcomponentcore',
     'ojs/ojknockout',
     'ojs/ojinputtext',
     'ojs/ojlabel',
     'ojs/ojknockout',
-    'ojs/ojbinddom'],
-    function (ko, HtmlUtils, ArrayDataProvider, ArrayTreeDataProvider, ModuleElementUtils, Logger, produceData, animalData) {
+    'ojs/ojbinddom',
+    'ojs/ojavatar',
+    'ojs/ojbutton',
+    'ojs/ojcollapsible',
+    'ojs/ojdefer'],
+    function (ko, HtmlUtils, ArrayDataProvider, ArrayTreeDataProvider, ModuleElementUtils, Logger, produceData, animalData, Components) {
         function ViewModel(first, last) {
 
             //////////////////Data Binding//////////////////
@@ -77,6 +82,15 @@ define([
                     return { 'view': [] };
                 }
             );
+            //////////////////If Binding//////////////////
+            this.buttonValue = ko.observable("off");
+            this.buttonValue.subscribe(function (newValue) {
+                console.log("button new status: " + newValue);
+            });
+            this.activate = function () {
+                Components.subtreeShown(document.getElementById('subtree'));
+            };
+
 
         }
         return new ViewModel("Alex", "Chen");

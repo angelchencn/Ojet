@@ -54,5 +54,33 @@
         </ul>
         <h3>Oracle Park Zoo</h3>
         <oj-module config="[[moduleConfig]]"></oj-module>
+        <h3>If Binding</h3>
+        <oj-buttonset-one class="oj-buttonset-width-auto" value="{{buttonValue}}">
+            <oj-option id="onOption" value="on">On</oj-option>
+            <oj-option id="offOption" value="off">Off</oj-option>
+        </oj-buttonset-one>
+        <br><br>
+        <div>Image will be rendered if the button is on:</div>
+        <oj-bind-if test="[[buttonValue() === 'on']]">
+            <oj-avatar role="img" aria-label="Avatar of alex Bartlet" size="md" initials="AB"
+                src="../../../images/alex.jpg">
+            </oj-avatar>
+        </oj-bind-if>
+        <oj-collapsible id="collapsiblePage">
+            <h4 id="collapsibleHeader" slot="header">Deferred Content</h4>
+            <oj-defer>
+                <div data-bind="ojModule: 'components/deferredContent'">
+                </div>
+            </oj-defer>
+        </oj-collapsible>
+        <div id="subtree">
+            <oj-defer>
+                <div data-bind="ojModule: 'components/deferredContent'">
+                </div>
+            </oj-defer>
+        </div>
+        <div class="oj-flex oj-flex-items-pad">
+            <oj-button id='activate' on-oj-action='[[activate]]'>Activate</oj-button>
+        </div>
     </div>
 </div>
