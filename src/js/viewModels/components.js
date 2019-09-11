@@ -20,8 +20,8 @@ define(['knockout',
           disabled: false
         },
         {
-          id: "cookbook",
-          label: "Cookbook",
+          id: "commonModel",
+          label: "Common Model",
           disabled: false
         },
         {

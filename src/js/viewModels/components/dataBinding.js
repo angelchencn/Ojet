@@ -8,6 +8,7 @@ define([
     'text!../../../sampleData/product.json',
     'text!../../../sampleData/animals.json',
     'ojs/ojcomponentcore',
+    'signals',
     'ojs/ojknockout',
     'ojs/ojinputtext',
     'ojs/ojlabel',
@@ -17,7 +18,7 @@ define([
     'ojs/ojbutton',
     'ojs/ojcollapsible',
     'ojs/ojdefer'],
-    function (ko, HtmlUtils, ArrayDataProvider, ArrayTreeDataProvider, ModuleElementUtils, Logger, produceData, animalData, Components) {
+    function (ko, HtmlUtils, ArrayDataProvider, ArrayTreeDataProvider, ModuleElementUtils, Logger, produceData, animalData, Components, signals) {
         function ViewModel(first, last) {
 
             //////////////////Data Binding//////////////////
@@ -91,7 +92,24 @@ define([
                 Components.subtreeShown(document.getElementById('subtree'));
             };
 
+            //////////////////Passing Paramters//////////////////
+            // define view and viewModel
+            var viewStr = '<p aria-live="assertive" aria-atomic="true">Module receiving parameter:<br/>' +
+                'Welcome to the oj-module \"<span class="bold"><oj-bind-text value="[[userGreeting]]"></oj-bind-text></span>\"</p>';
+            var viewNodes = HtmlUtils.stringToNodeArray(viewStr);
+            var viewModel = function (userName) {
+                userGreeting = userName;
+            };
+            this.name = ko.observable('user');
+            this.moduleConfig = {
+                view: viewNodes,
+                viewModel: new viewModel(this.name)
+            };
 
+            //////////////////Inter Module Communication//////////////////
+            var userInfoSignal = new signals.Signal();
+            this.page1Config = ModuleElementUtils.createConfig({ name: 'components/page1', params: { 'userInfoSignal': userInfoSignal } });
+            this.page2Config = ModuleElementUtils.createConfig({ name: 'components/page2', params: { 'userInfoSignal': userInfoSignal } });
         }
         return new ViewModel("Alex", "Chen");
     }

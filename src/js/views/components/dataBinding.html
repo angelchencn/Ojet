@@ -82,5 +82,24 @@
         <div class="oj-flex oj-flex-items-pad">
             <oj-button id='activate' on-oj-action='[[activate]]'>Activate</oj-button>
         </div>
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+            <div id="moduleDemo">
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <oj-label for="f_userName">Pass Parameter</oj-label>
+                        <oj-input-text id="f_userName" value="{{name}}"></oj-input-text>
+                    </div>
+                    <div class="oj-flex-item">
+                        <oj-module config='[[moduleConfig]]'></oj-module>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+            <div id="moduleDemo" class="oj-flex">
+                <oj-module config='[[page1Config]]' class="oj-flex-item"></oj-module>
+                <oj-module config='[[page2Config]]' class="oj-flex-item"></oj-module>
+            </div>
+        </div>
     </div>
 </div>

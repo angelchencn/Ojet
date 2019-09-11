@@ -1,0 +1,74 @@
+<div id="sampleDemo" style="" class="demo-padding demo-container">
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+
+        <div id="mainContent">
+            <oj-table id="table" data="[[datasource]]" columns='[{"headerText": "Remove", "id": "column1", "sortable": "disabled"},
+                      {"headerText": "Department Id",
+                       "field": "DepartmentId", "sortable": "enabled"},
+                      {"headerText": "Department Name",
+                       "field": "DepartmentName", "sortable": "enabled"}]'
+                selection-mode='{"row": "none", "column": "none"}'
+                row-renderer='[[oj.KnockoutTemplateUtils.getRenderer("row_tmpl", true)]]'>
+            </oj-table>
+            <br />
+            (Click on a Department Name to edit it)
+            <br /><br />
+            <oj-button id="deleteDept_btn" disabled="[[!somethingChecked()]]" on-oj-action="[[deleteDepartment]]">Remove
+                Department</oj-button>
+            <br />
+            <br /><br />
+            <oj-dialog id="editDialog" style="display:none" dialog-title="Change Department Name"
+                drag-affordance="title-bar" modality="modeless" resize-behavior="none">
+                <div slot="header" class="oj-helper-clearfix" aria-labelledby="dialog-title-id">
+                    <div>
+                        <span id="infoIcon" class="oj-fwk-icon oj-fwk-icon-status-info"
+                            style="float:left; margin-right: 10px"></span>
+                        <span id="dialog-title-id" class="oj-dialog-title">Change Department Name</span>
+                    </div>
+                </div>
+                <div slot="body">
+                    <div class="oj-md-odd-cols-4">
+                        <oj-label for="newName" class="oj-label">Department Name</oj-label>
+                        <oj-input-text id="newName" value="{{currentDeptName}}"></oj-input-text>
+                    </div>
+                </div>
+                <div slot="footer">
+                    <oj-button id="submitBtn" on-oj-action="[[updateDeptName]]">Change</oj-button>
+                    <oj-button id="resetBtn" on-oj-action="[[cancelDialog]]">Cancel</oj-button>
+                </div>
+            </oj-dialog>
+            <!-- A simple form is used to add a new department record. -->
+            <h3>New Department</h3>
+            <oj-form-layout label-edge="start">
+                <oj-input-number id="newDepartId" value="{{newDeptId}}" label-hint="Department Id"></oj-input-number>
+                <oj-label id="inputgroup" label-id="inputgrouplabel">Department Name</oj-label>
+                <div class="oj-form-control-group" aria-labelledby="inputgrouplabel" role="group">
+                    <oj-input-text id="newDepartName" value="{{newDeptName}}" placeholder="enter new name"
+                        label-hint="Department Name"></oj-input-text>
+                    <oj-button id="saveBtn" on-oj-action="[[addDepartment]]">Add Department</oj-button>
+                </div>
+            </oj-form-layout>
+            <br />
+            <br />
+            <script type="text/html" id="row_tmpl">
+              <tr>
+                  <td>
+                    <oj-checkboxset aria-hidden='true' on-value-changed="[[$parent.enableDelete]]" class='oj-checkboxset-no-chrome'>
+                      <oj-option :id="[[DepartmentId]]" value="[[DepartmentId]]"></oj-option>
+                    </oj-checkboxset>
+                  </td>
+                  <td>
+                    <div id='deptId' on-click="[[function(data, event){$root.showChangeNameDialog(DepartmentId,data,event)}]]">
+                      <oj-bind-text value="[[DepartmentId]]"></oj-bind-text>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="deptName" on-click="[[function(data, event){$root.showChangeNameDialog(DepartmentId,data,event)}]]">
+                      <oj-bind-text value="[[DepartmentName]]"></oj-bind-text>
+                    </div>
+                  </td>
+                </tr>
+          </script>
+        </div>
+    </div>
+</div>
