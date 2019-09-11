@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Fruit",
+        "children": [
+            {
+                "name": "Apple"
+            },
+            {
+                "name": "Orange"
+            },
+            {
+                "name": "Banana"
+            }
+        ]
+    },
+    {
+        "name": "Vegetable",
+        "children": [
+            {
+                "name": "Celery"
+            },
+            {
+                "name": "Corn"
+            },
+            {
+                "name": "Spinach"
+            }
+        ]
+    }
+]

@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <th>Animal</th>
+            <th>Exibit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <oj-bind-for-each data="[[animals]]">
+            <template>
+                <tr>
+                    <td>
+                        <oj-bind-text value="[[$current.data.name]]"></oj-bind-text>
+                    </td>
+                    <td>
+                        <oj-bind-text value="[[$current.data.exhibit]]"></oj-bind-text>
+                    </td>
+                </tr>
+            </template>
+        </oj-bind-for-each>
+    </tbody>
+</table>

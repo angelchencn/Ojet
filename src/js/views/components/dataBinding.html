@@ -33,5 +33,26 @@
                 </template>
             </oj-bind-for-each>
         </ul>
+        <h4>Fruits and Vegetables</h4>
+        <ul>
+            <oj-bind-for-each data="[[categories]]">
+                <template data-oj-as="category">
+                    <li>
+                        <ul>
+                            <oj-bind-for-each data="[[categories.getChildDataProvider(category.data.name)]]">
+                                <template data-oj-as="item">
+                                    <li>
+                                        <oj-bind-text value="[[category.data.name + ' : ' + item.data.name]]">
+                                        </oj-bind-text>
+                                    </li>
+                                </template>
+                            </oj-bind-for-each>
+                        </ul>
+                    </li>
+                </template>
+            </oj-bind-for-each>
+        </ul>
+        <h3>Oracle Park Zoo</h3>
+        <oj-module config="[[moduleConfig]]"></oj-module>
     </div>
 </div>

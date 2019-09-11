@@ -6,12 +6,12 @@ define(['knockout',
 ],
   function (ko, ModuleElementUtils) {
     function ComponentsViewModel() {
-      this.currentModule = ko.observable("framework");
+      this.currentModule = ko.observable("dataBinding");
       this.ModuleElementUtils = ModuleElementUtils;
       this.listItems = [
         {
-          id: "framework",
-          label: "Framework",
+          id: "dataBinding",
+          label: "Data Binding",
           disabled: false
         },
         {

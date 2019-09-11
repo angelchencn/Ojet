@@ -2,12 +2,17 @@ define([
     'knockout',
     'ojs/ojhtmlutils',
     'ojs/ojarraydataprovider',
+    'ojs/ojarraytreedataprovider',
+    'ojs/ojmodule-element-utils', 
+    'ojs/ojlogger',
+    'text!../../../sampleData/product.json',
+    'text!../../../sampleData/animals.json',
     'ojs/ojknockout',
     'ojs/ojinputtext',
     'ojs/ojlabel',
     'ojs/ojknockout',
     'ojs/ojbinddom'],
-    function (ko, HtmlUtils, ArrayDataProvider) {
+    function (ko, HtmlUtils, ArrayDataProvider, ArrayTreeDataProvider, ModuleElementUtils, Logger, produceData, animalData) {
         function ViewModel(first, last) {
 
             //////////////////Data Binding//////////////////
@@ -53,6 +58,26 @@ define([
             this.addUser = function () {
                 users.push({ name: "User " + userIdCount++ });
             };
+
+            //////////////////For Each Binding(Nested)//////////////////
+            this.categories = new ArrayTreeDataProvider(JSON.parse(produceData), { keyAttributes: "name" });
+
+            //////////////////For Each Binding In Table//////////////////
+            var animals = new ArrayDataProvider(JSON.parse(animalData), { keyAttributes: 'name' });
+
+            var zooTableViewModel = { animals: animals }; // view model  for the table
+            // load view and update module config
+            var viewPromise = ModuleElementUtils.createView({ 'viewPath': 'views/components/zooTable.html' });
+            this.moduleConfig = viewPromise.then(
+                function (zooTableView) {
+                    return { 'view': zooTableView, 'viewModel': zooTableViewModel };
+                }.bind(this),
+                function (error) {
+                    Logger.error('Error during loading view: ' + error.message);
+                    return { 'view': [] };
+                }
+            );
+
         }
         return new ViewModel("Alex", "Chen");
     }
