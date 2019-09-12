@@ -58,12 +58,12 @@
                     </oj-checkboxset>
                   </td>
                   <td>
-                    <div id='deptId' on-click="[[function(data, event){$root.showChangeNameDialog(DepartmentId,data,event)}]]">
+                    <div id='deptId' on-click="[[function(data, event){$parent.showChangeNameDialog(DepartmentId,data,event)}]]">
                       <oj-bind-text value="[[DepartmentId]]"></oj-bind-text>
                     </div>
                   </td>
                   <td>
-                    <div id="deptName" on-click="[[function(data, event){$root.showChangeNameDialog(DepartmentId,data,event)}]]">
+                    <div id="deptName" on-click="[[function(data, event){$parent.showChangeNameDialog(DepartmentId,data,event)}]]">
                       <oj-bind-text value="[[DepartmentName]]"></oj-bind-text>
                     </div>
                   </td>

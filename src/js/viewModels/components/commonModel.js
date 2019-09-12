@@ -5,6 +5,7 @@ define([
     'MockRESTServer', 
     'text!../../../sampleData/departments.json', 
     'ojs/ojknockout', 
+    'ojs/ojknockout-model',
     'ojs/ojtable', 
     'ojs/ojcheckboxset', 
     'ojs/ojinputnumber', 
@@ -130,6 +131,8 @@ define([
             parseSave: this.parseSaveDept,
             idAttribute: 'DepartmentId'
           });
+
+          
   
           this.myDept = new this.Department();
           this.DeptCollection = Model.Collection.extend({

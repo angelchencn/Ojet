@@ -5,8 +5,39 @@
 <div class="oj-hybrid-padding">
   <h1>Knockout </h1>
   <div>
-      <p>First name: <input data-bind="value: firstName" /></p>
-      <p>Last name: <input data-bind="value: lastName" /></p>
-      <h2>Hello, <span data-bind="text: fullName"> </span>!</h2>
+    <p>First name: <input data-bind="value: firstName" /></p>
+    <p>Last name: <input data-bind="value: lastName" /></p>
+    <h2>Hello, <span data-bind="text: fullName"> </span>!</h2>
+    <p>Last name: <input data-bind="value: personName" /></p>
+    <form data-bind="submit: addItem">
+      New item:
+      <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+      <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
+      <p>Your items:</p>
+      <select multiple="multiple" width="50" data-bind="options: items"> </select>
+    </form>
+    <h3>Writable computed observables</h3>
+    <div>First name: <span data-bind="text: firstName1"></span></div>
+    <div>Last name: <span data-bind="text: lastName1"></span></div>
+    <div class="heading">Hello, <input data-bind="textInput: fullName1" /></div>
+    <h3>Selecting/deselecting all items</h3>
+    <div class="heading">
+      <input type="checkbox" data-bind="checked: selectedAllProduce" title="Select all/none" /> Produce
+    </div>
+    <div data-bind="foreach: produce">
+      <label>
+        <input type="checkbox" data-bind="checkedValue: $data, checked: $parent.selectedProduce" />
+        <span data-bind="text: $data"></span>
+      </label>
+    </div>
+    <h3>Value Converter</h3>
+    <div>Enter bid price: <input data-bind="value: formattedPrice" /></div>
+    <div>(Raw value: <span data-bind="text: price"></span>)</div>
+    <h3>Filter and Validation</h3>
+    <div>Enter a numeric value: <input data-bind="textInput: attemptedValue" /></div>
+    <div class="error" data-bind="visible: !lastInputWasValid()">That's not a number!</div>
+    <div>(Accepted value: <span data-bind="text: acceptedNumericValue"></span>)</div>
+
+
   </div>
 </div>
