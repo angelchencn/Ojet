@@ -101,6 +101,17 @@ define(['knockout'],
         },
         owner: this
       });
+
+      //////////////////Binding//////////////////////
+      this.shouldShowMessage = ko.observable(true);
+      this.shouldShowMessage(true); // ... now it's visible again
+
+      this.myMessage = "Hello, world";
+      this.price = ko.observable(52.95);
+      this.priceRating = ko.pureComputed(function(){
+          return this.price > 50 ? "expensive" : "affordable";
+      });
+
     }
 
     return new KnockoutViewModel("Alex", "Chen");

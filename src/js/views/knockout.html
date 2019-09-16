@@ -37,7 +37,13 @@
     <div>Enter a numeric value: <input data-bind="textInput: attemptedValue" /></div>
     <div class="error" data-bind="visible: !lastInputWasValid()">That's not a number!</div>
     <div>(Accepted value: <span data-bind="text: acceptedNumericValue"></span>)</div>
-
+    <h3>Binding</h3>
+    <div data-bind="visible: shouldShowMessage">
+      You will see this message only when "shouldShowMessage" holds a true value.
+    </div>
+    Today's message is: <span data-bind="text: myMessage"></span>
+    The item is <span data-bind="text: priceRating"></span> today.
+    The item is <span data-bind="text: price() > 50 ? 'expensive' : 'affordable'"></span> today.
 
   </div>
 </div>
