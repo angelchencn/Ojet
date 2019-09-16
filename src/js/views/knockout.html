@@ -45,5 +45,59 @@
     The item is <span data-bind="text: priceRating"></span> today.
     The item is <span data-bind="text: price() > 50 ? 'expensive' : 'affordable'"></span> today.
 
+    <div data-bind="html: htmlDetails"></div>
+    <a data-bind="attr: { href: attrUrl, title: attrDetails }">
+      Report
+    </a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: people">
+        <tr>
+          <td data-bind="text: firstName"></td>
+          <td data-bind="text: lastName"></td>
+          <td>
+            <span data-bind="text: $index"> </span>
+            <a href="#" data-bind="click: $parent.removePerson">Remove</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button data-bind="click: addPerson">Add</button>
+
+    <label><input type="checkbox" data-bind="checked: displayMessage" /> Display message</label>
+    <div data-bind="if: displayMessage">Here is a message. Astonishing.</div>
+
+    <!--<h1 data-bind="text: city"> </h1>
+    <p data-bind="using: coords">
+      Latitude: <span data-bind="text: latitude"> </span>,
+      Longitude: <span data-bind="text: longitude"> </span>
+    </p>-->
+    <form data-bind="submit: getTweets">
+      Twitter account:
+      <input data-bind="value: twitterName" />
+      <button type="submit">Get tweets</button>
+    </form>
+    <div data-bind="with: resultData">
+      <h3>Recent tweets fetched at <span data-bind="text: retrievalDate"> </span></h3>
+      <ol data-bind="foreach: topTweets">
+        <li data-bind="text: text"></li>
+      </ol>
+      <button data-bind="click: $parent.clearResults">Clear tweets</button>
+    </div>
+
+    <h4>First instance, without parameters</h4>
+    <div data-bind='component: "message-editor"'></div>
+    <h4>Second instance, passing parameters</h4>
+    <div data-bind='component: {
+    name: "message-editor",
+    params: { initialText: "Hello, world!" }}'>
+  </div>
+
   </div>
 </div>
