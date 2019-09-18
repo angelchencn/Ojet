@@ -61,6 +61,21 @@ define([
           });
       };
 
+      /*this.deleteExpense = function (event, data) {
+        var expenseIds = [];
+        deptIds = this.findDeptIds();
+        var collection = data.DeptCol();
+        deptIds.forEach(function (value, index, arr) {
+          var model = collection.get(value);
+          if (model) {
+            collection.remove(model);
+            model.destroy();
+          }
+        });
+        this.enableDelete();
+        document.getElementById("table").refresh();
+      }.bind(this);*/
+
       this.resetForm = function () {
         self.form.description('');
         self.form.amount(null);

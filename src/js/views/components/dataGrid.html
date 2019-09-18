@@ -1,0 +1,55 @@
+<div id="sampleDemo" style="" class="demo-padding demo-container">
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+
+        <div id="datagrid-wrapper" class="oj-flex oj-flex-items-pad">
+            <div class="oj-sm-12 oj-lg-6 oj-flex-item">
+                <oj-data-grid id="datagrid" style="height:400px; max-width:477px" aria-label="Data Grid CRUD Demo"
+                    data="[[dataSource]]" selection-mode.row="single" dnd.reorder.row="enable"
+                    header.column.renderer="[[oj.KnockoutTemplateUtils.getRenderer('header_template')]]"
+                    header.column.style="width:100px"
+                    cell.renderer="[[oj.KnockoutTemplateUtils.getRenderer('cell_template')]]"
+                    cell.class-name="[[getCellClassName]]">
+                </oj-data-grid>
+            </div>
+            <oj-form-layout id="form-container" style="padding-left:10px;padding-top:10px;">
+                <oj-input-text id="firstNameInput" value="{{inputFirstName}}" label-hint="First Name"></oj-input-text>
+                <oj-input-text id="lastNameInput" value="{{inputLastName}}" label-hint="Last Name"></oj-input-text>
+                <oj-input-text id="inputHireDate" value="{{inputHireDate}}" label-hint="Date Hired"></oj-input-text>
+                <oj-input-text id="inputSalary" value="{{inputSalary}}" label-hint="Salary"></oj-input-text>
+                <oj-label-value>
+                    <oj-button id="addbutton" on-oj-action="[[add]]">Add</oj-button>
+                    <oj-button id="updateButton" on-oj-action="[[update]]">Update</oj-button>
+                    <oj-button id="removeButton" on-oj-action="[[remove]]">Remove</oj-button>
+                    <oj-button id="resetFields" on-oj-action="[[resetFields]]">Reset Fields</oj-button>
+                </oj-label-value>
+            </oj-form-layout>
+        </div>
+
+        <script type="text/html" id="header_template">
+        <oj-bind-if test="[[$context.key == 'FIRST_NAME']]">
+            <span><oj-bind-text value="First Name"></span>
+        </oj-bind-if>
+        <oj-bind-if test="[[$context.key == 'LAST_NAME']]">
+          <span><oj-bind-text value="Last Name"></span>
+        </oj-bind-if>
+        <oj-bind-if test="[[$context.key == 'HIRE_DATE']]">
+          <span><oj-bind-text value="Date Hired"></span>
+        </oj-bind-if>
+        <oj-bind-if test="[[$context.key == 'SALARY']]">
+          <span><oj-bind-text value="Salary"></span>
+        </oj-bind-if>
+      </script>
+
+        <script type="text/html" id="cell_template">
+      <oj-bind-if test="[[$context.keys.column == 'FIRST_NAME' || $context.keys.column == 'LAST_NAME']]">
+        <span><oj-bind-text value="[[$context.data]]"></span>
+      </oj-bind-if>
+      <oj-bind-if test="[[$context.keys.column == 'HIRE_DATE']]">
+        <span><oj-bind-text value="[[$parent.dateConverter.format($context.data)]]"></span>
+      </oj-bind-if>
+      <oj-bind-if test="[[$context.keys.column == 'SALARY']]">
+        <span><oj-bind-text value="[[$parent.salaryConverter.format($context.data)]]"></span>
+      </oj-bind-if>
+      </script>
+    </div>
+</div>

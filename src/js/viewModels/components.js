@@ -25,8 +25,8 @@ define(['knockout',
           disabled: false
         },
         {
-          id: "stylelab",
-          label: "Style Lab",
+          id: "dataGrid",
+          label: "Data Grid",
           disabled: false
         },
         {
