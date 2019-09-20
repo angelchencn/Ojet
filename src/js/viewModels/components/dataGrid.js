@@ -1,4 +1,14 @@
-define(['ojs/ojcore', 'ojs/ojmodel', 'ojs/ojvalidation-base', 'knockout', 'ojs/ojknockout', 'ojs/ojdatagrid', 'ojs/ojcollectiondatagriddatasource', 'ojs/ojinputtext', 'ojs/ojinputnumber', 'ojs/ojdatetimepicker', 'ojs/ojformlayout'],
+define(['ojs/ojcore',
+    'ojs/ojmodel',
+    'ojs/ojvalidation-base',
+    'knockout',
+    'ojs/ojknockout',
+    'ojs/ojdatagrid',
+    'ojs/ojcollectiondatagriddatasource',
+    'ojs/ojinputtext',
+    'ojs/ojinputnumber',
+    'ojs/ojdatetimepicker',
+    'ojs/ojformlayout'],
     function (oj, Model, Validation, ko) {
         function viewModel() {
             var dateOptions = { formatType: 'date', dateFormat: 'medium' };
@@ -17,7 +27,7 @@ define(['ojs/ojcore', 'ojs/ojmodel', 'ojs/ojvalidation-base', 'knockout', 'ojs/o
 
             this.collection = new Model.Collection(null, {
                 model: new Model.Model.extend({ idAttribute: 'EMPLOYEE_ID' }),
-                url: '../../cookbook/commonModel/crud/CRUDGrid/employeeData.json'
+                url: '../../../sampleData/employeeData.json'
             });
 
             this.dataSource = new oj.CollectionDataGridDataSource(
@@ -95,7 +105,7 @@ define(['ojs/ojcore', 'ojs/ojmodel', 'ojs/ojvalidation-base', 'knockout', 'ojs/o
                 return 'oj-helper-justify-content-flex-start';
             }
 
-            document.getElementById('datagrid').addEventListener('selectionChanged', function (event) {
+            /*document.getElementById('datagrid').addEventListener('selectionChanged', function (event) {
                 //on selection change update fields with the selected model
                 var selection = event.detail['value'][0];
                 if (selection != null) {
@@ -103,8 +113,8 @@ define(['ojs/ojcore', 'ojs/ojmodel', 'ojs/ojvalidation-base', 'knockout', 'ojs/o
                     this.modelToUpdate = this.collection.get(rowKey);
                     this.updateFields(this.modelToUpdate);
                 }
-            }.bind(this));
+            }.bind(this));*/
         };
 
-        var vm = new viewModel();
+        return new viewModel();
     });
