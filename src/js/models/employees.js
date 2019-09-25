@@ -5,14 +5,14 @@ define(['./employee', './base-collection', 'ojs/ojmodel',
       initialize: function (params) {
         BaseCollection.prototype.initialize.call(this, params);
       },
-      url: 'http://localhost:9090/rest/employees',
+      url: 'http://localhost:9090/api/employees',
       model: Expense,
       customURL: function (operation, collection, options) {
         if (!isNaN(options.fetchSize) && !isNaN(options.startIndex)) {
-          return `http://localhost:9090/rest/employees?$limit=${options.fetchSize}&$skip=${options.startIndex}`;
+          return `http://localhost:9090/api/employees?$limit=${options.fetchSize}&$skip=${options.startIndex}`;
         }
 
-        return 'http://localhost:9090/rest/employees';
+        return 'http://localhost:9090/api/employees';
       }
     });
 

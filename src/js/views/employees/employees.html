@@ -1,17 +1,56 @@
 <div id="form-container" class="oj-form">
-    <oj-label id="module1LabelId" label-id="module1LabelId">Employees</oj-label>
-    <div class="oj-flex-item oj-sm-9" style="padding-left: 10px;">
-        <div class="oj-panel">
-          <h3>Expense List</h3>
-          <oj-table
-            data='[[pagingDataProvider]]'
-            columns='[[columnOptions]]'
-            style='width: 100%; height: 200px;'>
-          </oj-table>
-          <!--<oj-button on-oj-action="[[deleteExpense]]">Remove Expense</oj-button>-->
-          <oj-paging-control slot="top" data='[[pagingDataProvider]]' page-size='5' class="ex-expense-list-pager">
-          </oj-paging-control>
-        </div>
-      </div>
-  
+  <div class="oj-flex-item oj-sm-9" style="padding-left: 5px; padding-top: 5px;">
+    <div class="oj-panel">
+      <oj-data-grid id="datagrid" style="height:420px; max-width:1000px" data="[[dataProvider]]"
+        selection-mode.row="single" dnd.reorder.row="enable"
+        
+        header.column.renderer="[[oj.KnockoutTemplateUtils.getRenderer('header_template')]]"
+        header.column.style="width:100px" cell.renderer="[[oj.KnockoutTemplateUtils.getRenderer('cell_template')]]">
+      </oj-data-grid>
+      <oj-form-layout id="form-container" style="padding-left:10px;padding-top:10px;">
+        <oj-input-text id="inputEmpNo" value="{{inputEmpNo}}" label-hint="Employee No"></oj-input-text>
+        <oj-input-text id="inputFirstName" value="{{inputFirstName}}" label-hint="First Name"></oj-input-text>
+        <oj-input-text id="inputLastName" value="{{inputLastName}}" label-hint="Last Name"></oj-input-text>
+        <oj-input-text id="inputGender" value="{{inputGender}}" label-hint="Gender"></oj-input-text>
+        <oj-input-text id="inputBirthDate" value="{{inputBirthDate}}" label-hint="Birth Date"></oj-input-text>
+        <oj-input-text id="inputHireDate" value="{{inputHireDate}}" label-hint="Date Hired"></oj-input-text>
+        <oj-label-value>
+            <oj-button id="addbutton" on-oj-action="[[add]]">Add</oj-button>
+            <oj-button id="updateButton" on-oj-action="[[update]]">Update</oj-button>
+            <oj-button id="removeButton" on-oj-action="[[remove]]">Remove</oj-button>
+            <oj-button id="resetFields" on-oj-action="[[resetFields]]">Reset Fields</oj-button>
+        </oj-label-value>
+    </oj-form-layout>
+    </div>
+    <script type="text/html" id="header_template">
+          <oj-bind-if test="[[$context.key == 'empNo']]">
+              <span><oj-bind-text value="Employee No"></span>
+          </oj-bind-if>
+          <oj-bind-if test="[[$context.key == 'firstName']]">
+            <span><oj-bind-text value="First Name"></span>
+          </oj-bind-if>
+          <oj-bind-if test="[[$context.key == 'lastName']]">
+            <span><oj-bind-text value="Last Name"></span>
+          </oj-bind-if>
+          <oj-bind-if test="[[$context.key == 'gender']]">
+            <span><oj-bind-text value="Gender"></span>
+          </oj-bind-if>
+          <oj-bind-if test="[[$context.key == 'birthDate']]">
+            <span><oj-bind-text value="Birth Date"></span>
+          </oj-bind-if>
+          <oj-bind-if test="[[$context.key == 'hireDate']]">
+            <span><oj-bind-text value="Hire Date"></span>
+          </oj-bind-if>
+        </script>
+        <script type="text/html" id="cell_template">
+            </oj-bind-if>
+            <oj-bind-if test="[[$context.keys.column == 'firstName' || $context.keys.column == 'lastName' || $context.keys.column == 'empNo' || $context.keys.column == 'gender']]">
+              <span><oj-bind-text value="[[$context.data]]"></span>
+            </oj-bind-if>
+            <oj-bind-if test="[[$context.keys.column == 'birthDate' || $context.keys.column == 'hireDate']]">
+              <span><oj-bind-text value="[[$parent.dateConverter.format($context.data)]]"></span>
+            </oj-bind-if>
+          </script>
+
+  </div>
 </div>
