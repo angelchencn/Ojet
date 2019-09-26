@@ -93,15 +93,15 @@ define(['models/employee',
                 this.inputSalary(15000);
             }.bind(this);
 
-            document.getElementById('datagrid').addEventListener('selectionChanged', function (event) {
+            //document.getElementById('datagrid').addEventListener('selectionChanged', function (event) {
                 //on selection change update fields with the selected model
-                var selection = event.detail['value'][0];
-                if (selection != null) {
-                    var rowKey = selection['startKey']['row'];
-                    this.modelToUpdate = this.collection.get(rowKey);
-                    this.updateFields(this.modelToUpdate);
-                }
-            }.bind(this));
+            //    var selection = event.detail['value'][0];
+            //    if (selection != null) {
+            //        var rowKey = selection['startKey']['row'];
+            //        this.modelToUpdate = this.collection.get(rowKey);
+            //        this.updateFields(this.modelToUpdate);
+            //    }
+            //}.bind(this));
 
         }
         return viewModel;

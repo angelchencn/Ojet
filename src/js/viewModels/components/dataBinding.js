@@ -17,7 +17,8 @@ define([
     'ojs/ojavatar',
     'ojs/ojbutton',
     'ojs/ojcollapsible',
-    'ojs/ojdefer'],
+    'ojs/ojdefer',
+    'demo-update-item/loader'],
     function (ko, HtmlUtils, ArrayDataProvider, ArrayTreeDataProvider, ModuleElementUtils, Logger, produceData, animalData, Components, signals) {
         function ViewModel(first, last) {
 
